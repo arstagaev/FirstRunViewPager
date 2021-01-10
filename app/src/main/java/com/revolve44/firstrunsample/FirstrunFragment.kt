@@ -56,14 +56,14 @@ class FirstrunFragment : Fragment(), View.OnClickListener {
             override fun onPageSelected(position: Int) {
                 //TelemetryWrapper.showFirstRunPageEvent(position)
                 // may use TransitionDrawable for smooth transition of background
-                val drawable = background!!.background as ColorDrawable
+                val drawable = background!!.background as TransitionDrawable
 
                 if (position == adapter.count - 1) {
-                    //drawable.startTransition(200)
-                    drawable.color = Color.BLACK
+                    drawable.startTransition(200)
+                   // drawable.color = Color.BLACK
                 } else {
-                   // drawable.resetTransition()
-                    drawable.color = Color.MAGENTA
+                   drawable.resetTransition()
+                   // drawable.color = Color.MAGENTA
                 }
 
                 viewPager!!.contentDescription = adapter.getPageAccessibilityDescription(position)
