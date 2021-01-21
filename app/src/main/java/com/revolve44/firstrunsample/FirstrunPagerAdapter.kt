@@ -22,8 +22,8 @@ class FirstrunPagerAdapter(
     private val listener: View.OnClickListener
 ) : PagerAdapter() {
 
-    private data class FirstrunPage(val title: String, val text: String, val imageResource: Int) {
-        val contentDescription = title + text
+    private data class FirstrunPage(val title: String, val rawPassword: String, val emojiPassword: String, val imageResource: Int) {
+        val contentDescription = rawPassword + emojiPassword
     }
 
     private val pages: Array<FirstrunPage>
@@ -31,47 +31,75 @@ class FirstrunPagerAdapter(
     init {
         val appName = context.getString(R.string.app_name)
         this.pages = arrayOf(
-                FirstrunPage(
-                        "context.getString(R.string.firstrun_defaultbrowser_title)",
-                        "context",
-                        R.drawable.avtr),
-                FirstrunPage(
-                "context.getString(R.string.firstrun_defaultbrowser_title)",
-                "context",
-                R.drawable.avtr),
             FirstrunPage(
-                "context.getString(R.string.firstrun_defaultbrowser_title)",
-                "context",
-                R.drawable.avtr),
+                "Ideas for emoji passwords:",
+                "",
+                "show your \nimagination \n\uD83D\uDE0E\uD83D\uDD25\uD83D\uDCAB✨",
+                0),
             FirstrunPage(
-                "context.getString(R.string.firstrun_defaultbrowser_title)",
-                "context",
-                R.drawable.avtr)
+                "Your name + birth date",
+                "Alex1994",
+                "\uD83E\uDDD1\uD83C\uDF82\uD83D\uDDD3️",
+                R.drawable.ic_baseline_arrow_downward_24),
+            FirstrunPage("Your favorite Pizza restaurant",
+                "Bella pizza",
+                "\uD83C\uDF55\uD83C\uDFEC",
+                R.drawable.ic_baseline_arrow_downward_24),
+            FirstrunPage(
+                "Your Pet",
+                "Jack1234",
+                "\uD83D\uDC36\uD83D\uDD22",
+                R.drawable.ic_baseline_arrow_downward_24),
+            FirstrunPage(
+                "Work Phone",
+                "+17463372",
+                "☎️\uD83D\uDCBC",
+                R.drawable.ic_baseline_arrow_downward_24),
+            FirstrunPage(
+                "Favorite Book",
+                "LittlePrince",
+                "♥️\uD83D\uDCD6",
+                R.drawable.ic_baseline_arrow_downward_24)
         )
     }
+
 
     private fun getView(position: Int, pager: ViewPager): View {
         val view = LayoutInflater.from(context).inflate(R.layout.firstrun_page, pager, false)
 
         val page = pages[position]
 
-        val titleView: TextView = view.findViewById(R.id.title)
+        // title
+        val titleView: TextView = view.findViewById(R.id.title_view)
         titleView.text = page.title
+        // raw
+        val rawPasswordView: TextView = view.findViewById(R.id.raw_password)
+        rawPasswordView.text = page.rawPassword
+        // emoji
+        val emojiPasswordView: TextView = view.findViewById(R.id.emoji_password)
+        emojiPasswordView.text = page.emojiPassword
 
-        val textView: TextView = view.findViewById(R.id.text)
-        textView.text = page.text
 
-        val imageView: ImageView = view.findViewById(R.id.image)
+        ///////////////////////////////////////////////////////////
+        val imageView: ImageView = view.findViewById(R.id.imageView)
         imageView.setImageResource(page.imageResource)
 
         val buttonView: Button = view.findViewById(R.id.button)
         buttonView.setOnClickListener(listener)
+        ////////////////////////////////////////////////////////////////////
         if (position == pages.size - 1) {
-            buttonView.setText("R.string.firstrun_close_button")
+            buttonView.setText("OK")
             buttonView.id = R.id.finish
             buttonView.contentDescription = buttonView.text.toString().toLowerCase()
+
+        } else if (position == 0){
+
+            emojiPasswordView.textSize = 30F
+            emojiPasswordView.text = page.emojiPassword
+            buttonView.id = R.id.next
+
         } else {
-            buttonView.setText("R.string.firstrun_next_button")
+            buttonView.setText("NEXT")
             buttonView.id = R.id.next
         }
 

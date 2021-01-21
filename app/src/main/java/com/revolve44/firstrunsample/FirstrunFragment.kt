@@ -26,7 +26,6 @@ class FirstrunFragment : Fragment(), View.OnClickListener {
         super.onAttach(context)
 
         //val transition = TransitionInflater.from(context).inflateTransition(R.transition.firstrun_exit)
-//
 //        exitTransition = transition
 
         // We will send a telemetry event whenever a new firstrun page is shown. However this page
@@ -38,7 +37,7 @@ class FirstrunFragment : Fragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_first_run, container, false)
 
-        view.findViewById<View>(R.id.skip).setOnClickListener(this)
+        //view.findViewById<View>(R.id.skip).setOnClickListener(this)
 
         background = view.findViewById(R.id.background)
 
@@ -84,10 +83,10 @@ class FirstrunFragment : Fragment(), View.OnClickListener {
         when (view.id) {
             R.id.next -> viewPager!!.currentItem = viewPager!!.currentItem + 1
 
-            R.id.skip -> {
-                finishFirstrun()
-                //TelemetryWrapper.skipFirstRunEvent()
-            }
+//            R.id.skip -> {
+//                finishFirstrun()
+//                //TelemetryWrapper.skipFirstRunEvent()
+//            }
 
             R.id.finish -> {
                 finishFirstrun()

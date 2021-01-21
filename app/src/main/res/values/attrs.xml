@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background drawable for borderless standalone items that need focus/pressed states. -->
+    <attr name="selectableItemBackgroundBorderless" format="reference" />
+</resources>

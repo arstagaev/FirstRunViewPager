@@ -38,43 +38,72 @@
                     android:layout_gravity="top"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="24dp"
-                        tools:src="@drawable/avtr" />
-
-                    <TextView
-                        android:id="@+id/title"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginEnd="24dp"
-                        android:gravity="center"
-                        android:lineSpacingMultiplier="1.25"
-                        android:textColor="#ff212121"
-                        android:textSize="18sp"
-                        tools:text="firstrun_tracking_title" />
+                        android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="24dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center"
-                        android:lineSpacingMultiplier="1.25"
-                        android:textColor="#ff737373"
-                        android:textSize="14sp"
-                        tools:text="firstrun_tracking_text" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
+
+
+                        <TextView
+                            android:id="@+id/title_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.25"
+                            android:textColor="#ff212121"
+                            android:textSize="22sp"
+                            cardview:layout_constraintStart_toStartOf="parent"
+                            cardview:layout_constraintTop_toTopOf="parent"
+                            tools:text="firstrun_tracking_title" />
+
+                        <TextView
+                            android:id="@+id/raw_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.25"
+                            android:textColor="#ff737373"
+                            android:textSize="44sp"
+                            cardview:layout_constraintBottom_toTopOf="@+id/imageView"
+                            cardview:layout_constraintStart_toStartOf="parent"
+                            cardview:layout_constraintTop_toBottomOf="@+id/title_view"
+                            cardview:layout_constraintVertical_bias="0.847"
+                            tools:text="Alex1994" />
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="9dp"
+                            android:src="@drawable/ic_baseline_arrow_downward_24"
+                            cardview:layout_constraintBottom_toTopOf="@+id/emoji_password"
+                            cardview:layout_constraintEnd_toEndOf="parent"
+                            cardview:layout_constraintStart_toStartOf="parent">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/emoji_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="96dp"
+                            android:gravity="center"
+                            android:lineSpacingMultiplier="1.25"
+                            android:textColor="#ff737373"
+                            android:textSize="60sp"
+                            cardview:layout_constraintBottom_toBottomOf="parent"
+                            cardview:layout_constraintStart_toStartOf="parent"
+                            tools:text="🧑🎂🗓️" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
 
                 </LinearLayout>
 
